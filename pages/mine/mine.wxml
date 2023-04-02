@@ -1,0 +1,18 @@
+<!--pages/mine/mine.wxml-->
+<view class="top_wrapper bg-gradual-blue flex justify-center align-center flex-direction">
+  <view class="cu-avatar xl round" bindtap="getUserProfile" style="background-image:url({{userInfo ? userInfo.avatarUrl : '../../images/no_head.png'}});"></view>
+  <view class="margin-tb-sm userShowName">
+    <block wx:if="{{userInfo}}">
+      <text>{{userInfo.nickName}}</text>
+    </block>
+    <text wx:else>登录</text>
+  </view>
+</view>
+<view class="cu-list menu card-menu margin-top">
+  <view class="cu-item arrow" bindtap="openAction">
+    <view class="content">
+      <text class="cuIcon-ellipse text-grey"></text>
+      <text class="text-grey">关于我们</text>
+    </view>
+  </view>
+</view>

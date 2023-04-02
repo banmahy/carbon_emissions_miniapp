@@ -1,0 +1,6 @@
+<!--pages/traffic.wxml-->
+<cu-custom bgColor="bg-gradual-blue" isBack="{{true}}">
+  <view slot="backText">返回</view>
+  <view slot="content">交通碳足迹</view>
+</cu-custom>
+<view>交通碳足迹计算</view>

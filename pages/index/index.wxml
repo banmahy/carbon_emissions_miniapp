@@ -1,23 +1,51 @@
-<!--index.wxml-->
-<view class="container">
-  <view class="userinfo">
-    <block wx:if="{{canIUseOpenData}}">
-      <view class="userinfo-avatar" bindtap="bindViewTap">
-        <open-data type="userAvatarUrl"></open-data>
+<view class="index__app flex">
+  <!-- 导航栏 -->
+  <cu-custom class="cu-custom" bgColor="{{customBgColor}}">
+    <view slot="content">{{customTitle}}</view>
+  </cu-custom>
+  <view wx:if="{{pageCur=='homePage'}}">
+    <!-- 轮播图 -->
+    <view class="bg-gray">
+      <swiper class="card-swiper square-dot" indicator-dots="true" circular="true" autoplay="true" interval="5000" duration="500" bindchange="swiperChange" indicator-color="#8799a3" indicator-active-color="#0081ff">
+        <swiper-item wx:for="{{swiperList}}" wx:key="swiperList" class="{{curSwiper==index?'cur':''}}">
+          <view class="swiper-item">
+            <image src="{{item.url}}" mode="aspectFill"></image>
+          </view>
+        </swiper-item>
+      </swiper>
+    </view>
+
+    <!-- <scroll-view scroll-y class="scrollPage">
+			<view class='nav-list bg-gray'>
+				<view hidden="{{!toggleDelay}}"  hover-class='none' data-url="{{item.url}}" class="nav-li bg-{{item.color}} {{ toggleDelay ?  'animation-slide-bottom' : '' }}" style="animation-delay: {{(index+1)*0.1}}s;" wx:for="{{validRegionlist}}" wx:key="btn_list" bindtap="goByUrl" data-valid="{{item.validRegion}}" wx:if="{{item.permisFlag}}"> 
+					<view class="nav-title">{{item.name}}</view>
+					<view class="nav-name">{{item.desc}}</view>
+					<text class='cuIcon-newsfill'></text>
+				</view>
+			</view>
+		</scroll-view> -->
+
+    <view class="padding bg-gray text-bold" hidden="{{!toggleDelay}}">分类</view>
+    <scroll-view scroll-y class="scrollPage">
+      <view class='nav-list bg-gray'>
+        <navigator hidden="{{!toggleDelay}}" open-type="navigate" hover-class='none' url="{{item.url}}" class="nav-li bg-{{item.color}} {{ toggleDelay ?  'animation-slide-bottom' : '' }}" style="animation-delay: {{(list.length+index+1)*0.1}}s;" wx:for="{{actionList}}" wx:key="btn_list">
+          <view class="nav-title">{{item.name}}</view>
+          <view class="nav-name">{{item.desc}}</view>
+          <text class='cuIcon-newsfill'></text>
+        </navigator>
       </view>
-      <open-data type="userNickName"></open-data>
-    </block>
-    <block wx:elif="{{!hasUserInfo}}">
-      <button wx:if="{{canIUseGetUserProfile}}" bindtap="getUserProfile"> 获取头像昵称 </button>
-      <button wx:elif="{{canIUse}}" open-type="getUserInfo" bindgetuserinfo="getUserInfo"> 获取头像昵称 </button>
-      <view wx:else> 请使用1.4.4及以上版本基础库 </view>
-    </block>
-    <block wx:else>
-      <image bindtap="bindViewTap" class="userinfo-avatar" src="{{userInfo.avatarUrl}}" mode="cover"></image>
-      <text class="userinfo-nickname">{{userInfo.nickName}}</text>
-    </block>
+    </scroll-view>
   </view>
-  <view class="usermotto">
-    <text class="user-motto">{{motto}}</text>
+  <mine wx:if="{{pageCur=='mine'}}"></mine>
+  <view class="cu-bar tabbar bg-white shadow foot">
+    <view class="action {{pageCur=='homePage'?'text-green':'text-gray'}}" bindtap="navChange" data-cur="homePage">
+      <view class="cuIcon-homefill"></view>
+      <view class="{{pageCur=='homePage'?'text-green':'text-gray'}}">首页</view>
+    </view>
+    <view class="action {{pageCur=='mine'?'text-green':'text-gray'}}" bindtap="navChange" data-cur="mine">
+      <view class="cuIcon-my"></view>
+      <view class="{{pageCur=='mine'?'text-green':'text-gray'}}">我的</view>
+    </view>
   </view>
+
 </view>

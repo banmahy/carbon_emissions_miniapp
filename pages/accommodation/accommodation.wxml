@@ -1,0 +1,6 @@
+<!--pages/accommodation/accommodation.wxml-->
+<cu-custom bgColor="bg-gradual-blue" isBack="{{true}}">
+  <view slot="backText">返回</view>
+  <view slot="content">住宿碳足迹</view>
+</cu-custom>
+<view>住宿碳足迹计算</view>

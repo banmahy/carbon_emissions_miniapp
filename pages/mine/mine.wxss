@@ -1,0 +1,22 @@
+/* pages/mine/mine.wxss */
+
+.page {
+  height: 100%;
+}
+
+.top_wrapper {
+  height: 450rpx;
+  position: relative;
+}
+
+.back_icon_wrapper {
+  position: absolute;
+  left: 0;
+  top: 40rpx;
+  padding: 30rpx;
+  font-size: 45rpx;
+}
+
+.userShowName {
+  letter-spacing: 2rpx;
+}
