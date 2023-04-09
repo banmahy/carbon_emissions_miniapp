@@ -15,17 +15,7 @@
       </swiper>
     </view>
 
-    <!-- <scroll-view scroll-y class="scrollPage">
-			<view class='nav-list bg-gray'>
-				<view hidden="{{!toggleDelay}}"  hover-class='none' data-url="{{item.url}}" class="nav-li bg-{{item.color}} {{ toggleDelay ?  'animation-slide-bottom' : '' }}" style="animation-delay: {{(index+1)*0.1}}s;" wx:for="{{validRegionlist}}" wx:key="btn_list" bindtap="goByUrl" data-valid="{{item.validRegion}}" wx:if="{{item.permisFlag}}"> 
-					<view class="nav-title">{{item.name}}</view>
-					<view class="nav-name">{{item.desc}}</view>
-					<text class='cuIcon-newsfill'></text>
-				</view>
-			</view>
-		</scroll-view> -->
-
-    <view class="padding bg-gray text-bold" hidden="{{!toggleDelay}}">分类</view>
+    <view class="padding bg-gray text-bold" hidden="{{!toggleDelay}}">功能</view>
     <scroll-view scroll-y class="scrollPage">
       <view class='nav-list bg-gray'>
         <navigator hidden="{{!toggleDelay}}" open-type="navigate" hover-class='none' url="{{item.url}}" class="nav-li bg-{{item.color}} {{ toggleDelay ?  'animation-slide-bottom' : '' }}" style="animation-delay: {{(list.length+index+1)*0.1}}s;" wx:for="{{actionList}}" wx:key="btn_list">
@@ -47,5 +37,4 @@
       <view class="{{pageCur=='mine'?'text-green':'text-gray'}}">我的</view>
     </view>
   </view>
-
 </view>
