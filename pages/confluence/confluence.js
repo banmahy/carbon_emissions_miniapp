@@ -1,18 +1,29 @@
 // pages/confluence/confluence.js
+import {
+  getInfo
+} from '../../api/confluence/confluence.js'
+import userUtils from '../../utils/userUtils'
 Page({
 
   /**
    * 页面的初始数据
    */
   data: {
-
+    userId: userUtils.getUserId() || '',
+    accommodationEmission: 0,
+    activityEmission: 0,
+    trafficEmission: 0,
+    menuList: []
   },
 
   /**
    * 生命周期函数--监听页面加载
    */
   onLoad(options) {
-
+    this.setData({
+      menuList: userUtils.getMenuList().split(',')
+    })
+    this.getRecord()
   },
 
   /**
@@ -62,5 +73,15 @@ Page({
    */
   onShareAppMessage() {
 
+  },
+  getRecord () {
+    let _this = this.data
+    getInfo(this.data.userId).then(res => {
+      this.setData({
+        accommodationEmission: res.accommodation.carbonEmission ? res.accommodation.carbonEmission.toFixed(3) : 0,
+        activityEmission: res.activity.carbonEmission ? res.activity.carbonEmission.toFixed(3) : 0,
+        trafficEmission: res.traffic.carbonEmission ? res.traffic.carbonEmission.toFixed(3) : 0
+      })
+    })
   }
 })

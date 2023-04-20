@@ -2,6 +2,7 @@
 //获取应用实例
 const app = getApp()
 import userUtils from '../../utils/userUtils.js'
+import {getInfo} from '../../api/index/index.js'
 Page({
   data: {
     // 导航栏颜色
@@ -60,6 +61,7 @@ Page({
         toggleDelay: true
       })
     }, 1000)
+    // this.getInfo()
   },
   /**
    * 生命周期 -> 页面显示/切入前台时触发。
@@ -104,5 +106,10 @@ Page({
         customTitle: '我的'
       })
     }
+  },
+  getInfo () {
+    getInfo().then(res => {
+      console.log(res)
+    })
   }
 })

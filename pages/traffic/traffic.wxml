@@ -3,4 +3,41 @@
   <view slot="backText">返回</view>
   <view slot="content">交通碳足迹</view>
 </cu-custom>
-<view>交通碳足迹计算</view>
+<view>
+  <view class="cu-form-group margin-top">
+    <view class="title">交通方式</view>
+    <picker bindchange="pickerChange" value="{{index}}" range="{{trafficType}}" range-key="label" required>
+      <view class="picker">
+        {{index ? trafficType[index].label:'请选择交通方式'}}
+      </view>
+    </picker>
+  </view>
+  <view class="cu-form-group">
+    <view class="title">里程(km)：</view>
+    <input type="digit" placeholder="请输入里程" maxlength="10" value="{{distance}}" id="distance" bindinput="distanceInput" required="true"></input>
+  </view>
+  <view class="cu-form-group">
+    <view class="title">人数：</view>
+    <input type="number" placeholder="请输入人数" min="0" maxlength="10" value="{{population}}" id="population" bindinput="populationInput" required="true"></input>
+  </view>
+  <view class="solids-bottom padding-xs flex align-center">
+    <view class="flex-sub text-center">
+      <view class="solid-bottom text-xl padding">
+        <text class="text-black text-bold" wx:if="{{flag}}">共排放二氧化碳<text class="text-cyan">{{carbonEmission}}</text>kg</text>
+      </view>
+    </view>
+  </view>
+  <view class="padding flex flex-direction">
+    <button class="cu-btn bg-gradual-blue margin-tb-sm lg" bindtap="calculate">计算</button>
+  </view>
+</view>
+<!-- <view wx:if="{{!hasMenu}}">
+  <view class="solids-bottom padding-xs flex align-center" style="padding-top: 40px;">
+    <view class="flex-sub text-center">
+      <view class="solid-bottom text-xsl padding">
+        <text class=" cuIcon-roundclosefill text-red"></text>
+      </view>
+      <view class="padding">暂无权限，请联系管理员</view>
+    </view>
+  </view>
+</view> -->

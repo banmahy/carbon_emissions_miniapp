@@ -34,6 +34,9 @@ Component({
             if (res) {
               // 将用户信息存到缓存中
               wx.setStorageSync('userInfo', self.data.userInfo)
+              wx.setStorageSync('token', res.token)
+              wx.setStorageSync('userId', res.userId)
+              wx.setStorageSync('menuList', res.menuList)
               wx.showToast({
                 title: '登录成功'
               })
@@ -74,7 +77,10 @@ Component({
       this.setData({
         userInfo: ''
       })
-      wx.setStorageSync('userInfo','')
+      wx.removeStorageSync('userInfo')
+      wx.removeStorageSync('token')
+      wx.removeStorageSync('userId')
+      wx.removeStorageSync('menuList')
       wx.showToast({
         title: '已退出'
       })

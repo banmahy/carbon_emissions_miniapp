@@ -3,4 +3,30 @@
   <view slot="backText">返回</view>
   <view slot="content">总汇</view>
 </cu-custom>
-<view>碳足迹总汇</view>
+<view class="cu-list menu-avatar">
+  <view class="cu-item">
+    <view class="cu-avatar round lg" style="background-image:url(../../images/traffic.jpg);"></view>
+    <view class="content flex-sub">
+      <view>交通碳排放</view>
+    </view>
+    <view style="margin-right: 30px;font-size: 15px;color: aqua;">{{trafficEmission}}kg</view>
+  </view>
+</view>
+<view class="cu-list menu-avatar">
+  <view class="cu-item">
+    <view class="cu-avatar round lg" style="background-image:url(../../images/acticity.png);"></view>
+    <view class="content flex-sub">
+      <view>活动碳排放</view>
+    </view>
+    <view style="margin-right: 30px;font-size: 15px;color: aqua;">{{activityEmission}}kg</view>
+  </view>
+</view>
+<view class="cu-list menu-avatar">
+  <view class="cu-item">
+    <view class="cu-avatar round lg" style="background-image:url(../../images/accommodation.jpeg);"></view>
+    <view class="content flex-sub">
+      <view>住宿碳排放</view>
+    </view>
+    <view style="margin-right: 30px;font-size: 15px;color: aqua;">{{accommodationEmission}}kg</view>
+  </view>
+</view>

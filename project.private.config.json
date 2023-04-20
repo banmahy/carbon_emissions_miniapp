@@ -3,6 +3,6 @@
   "projectname": "carbon_emissions_miniapp",
   "setting": {
     "compileHotReLoad": true,
-    "urlCheck": false
+    "urlCheck": true
   }
 }
