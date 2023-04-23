@@ -13,7 +13,8 @@ Page({
     accommodationEmission: 0,
     activityEmission: 0,
     trafficEmission: 0,
-    menuList: []
+    menuList: [],
+    suggestion: ''
   },
 
   /**
@@ -78,9 +79,10 @@ Page({
     let _this = this.data
     getInfo(this.data.userId).then(res => {
       this.setData({
-        accommodationEmission: res.accommodation.carbonEmission ? res.accommodation.carbonEmission.toFixed(3) : 0,
-        activityEmission: res.activity.carbonEmission ? res.activity.carbonEmission.toFixed(3) : 0,
-        trafficEmission: res.traffic.carbonEmission ? res.traffic.carbonEmission.toFixed(3) : 0
+        accommodationEmission: res.accommodation ? res.accommodation.carbonEmission.toFixed(3) : 0,
+        activityEmission: res.activity ? res.activity.carbonEmission.toFixed(3) : 0,
+        trafficEmission: res.traffic ? res.traffic.carbonEmission.toFixed(3) : 0,
+        suggestion: res.suggestion
       })
     })
   }

@@ -30,3 +30,6 @@
     <view style="margin-right: 30px;font-size: 15px;color: aqua;">{{accommodationEmission}}kg</view>
   </view>
 </view>
+<view class="padding">
+  <view class="padding-xl radius shadow-warp bg-gradual-blue margin-top" style="font-size: 14px;">建议：{{suggestion}}</view>
+</view>
